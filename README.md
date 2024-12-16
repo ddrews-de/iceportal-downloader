@@ -5,12 +5,12 @@ As the title describes...
 A small script which downloads all offerd audiobooks from the deutsche bahn iceportal.
 
 
-![](https://github.com/SirBenedick/iceportal-audiobooks-downloader/blob/master/git.gif)
+![](https://github.com/ddrews-de/iceportal-audiobooks-downloader/blob/master/git.gif)
 
 
 
 ## Setup
-1. git clone 'https://github.com/SirBenedick/iceportal-audiobooks-downloader.git'
+1. git clone 'https://github.com/ddrews-de/iceportal-audiobooks-downloader.git'
 2. cd iceportal-audiobooks-downloader
 3. virtualenv env (make sure you are using python > 3.4)
 4. source env/bin/activate
