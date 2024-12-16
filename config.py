@@ -11,12 +11,13 @@ headers = {
     'x-tracking': '/home/hoerbuecher_und_hoerspiele/menschen_lesen',
 }
 cookies = {
-    's_fid': '2592377D500499F2-0C2858EE4CE4E995',
-    'dbsession': 'c0fb538e.57547f612ad2b',
+    's_fid': '434CA01916102447-386C7F87C739BE97',
+    'dbsession': '84a8aa23.6295e13a46707',
     'scr': '1680x1050',
     's_cc': 'true',
-    'vzn': 'ICE1094',
     's_sq': '%5B%5BB%5D%5D',
-    's_ppvl': 'hoerbuecher_und_hoerspiele%2Fmenschen_lesen%2C100%2C100%2C886%2C766%2C886%2C1680%2C1050%2C2%2CL',
-    's_ppv': 'hoerbuecher_und_hoerspiele%2Fmenschen_lesen%2C100%2C100%2C909%2C766%2C909%2C1680%2C1050%2C2%2CL',
+    'gpv_pn': 'no%20value',
+    'gpv_ln': 'H%C3%B6rb%C3%BCcher%20%26%20Podcasts',
+    's_vi': '[CS]v1|33AFEAEB2026B131-400015A22109AEF0[CE]'
 }
+
