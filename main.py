@@ -102,3 +102,60 @@ createFolder('./audiobooks')
 # download all audibooks
 for book in audiobooks:
     downloadAudiobook(str(book))
+
+
+
+def getAllPDFs():
+    PDFs = []
+
+    url = "https://iceportal.de/api1/rs/page/zeitungskiosk"
+    response = requests.get(url, headers=cfg.headers)
+
+    # extract titles
+    json_data = json.loads(response.text)
+    items = json_data["teaserGroups"][0]["items"]
+
+    for item in items:
+        name = str(item["navigation"]["href"])
+        # check if itemtype is not Podcast
+        PDFs.append(name)
+
+    return PDFs
+
+
+def downloadPDF(title):
+    # titleshort = title.split("/")[2]
+    print("Downloading PDF: {}".format(title))
+    url = "https://iceportal.de/api1/rs/page{}".format(title)
+    responseChapter = requests.get(url, headers=cfg.headers)
+
+
+    # extract chapters
+    json_data = json.loads(responseChapter.text)
+
+    itemurl = str(json_data["navigation"]["href"])
+    itemdate = str(json_data["date"])
+    titleshort = str(json_data["segment"])
+
+    createFolder('./audiobooks/{}'.format(titleshort))
+   
+    url = "https://iceportal.de{}".format(track)
+
+    savePath = "audiobooks/{}/{}-{}".format(titleshort,itemdate,titleshort)+".pdf"
+    if os.path.exists(savePath):
+        print("PDF exists")
+        return
+    
+    pdffile = requests.get(url)
+    with open(savePath, "wb+") as code:
+            code.write(pdffile.content)
+
+
+# MAIN
+# extract all audiobooks
+PDFs = getAllPDFs()
+createFolder('./zeitungskiosk')
+
+# download all audibooks
+for PDF in PDFs:
+    downloadPDF(str(PDF))
