@@ -12,12 +12,13 @@ headers = {
 }
 cookies = {
     's_fid': '434CA01916102447-386C7F87C739BE97',
-    'dbsession': '84a8aa23.6295e13a46707',
+    'dbsession': '4357c42b.629d5e0bb8133',
+    'gvo_v25': 'direct',
     'scr': '1680x1050',
     's_cc': 'true',
     's_sq': '%5B%5BB%5D%5D',
-    'gpv_pn': 'no%20value',
-    'gpv_ln': 'H%C3%B6rb%C3%BCcher%20%26%20Podcasts',
+    'gpv_pn': 'zeitungskiosk%3Acicero',
+    'gpv_ln': 'BaP%20-%20Service',
     's_vi': '[CS]v1|33AFEAEB2026B131-400015A22109AEF0[CE]'
 }
 

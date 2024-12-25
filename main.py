@@ -109,7 +109,7 @@ def getAllPDFs():
     PDFs = []
 
     url = "https://iceportal.de/api1/rs/page/zeitungskiosk"
-    response = requests.get(url, headers=cfg.headers)
+    response = requests.get(url, headers=cfg.headers, cookies=cfg.cookies)
 
     # extract titles
     json_data = json.loads(response.text)
@@ -127,7 +127,7 @@ def downloadPDF(title):
     # titleshort = title.split("/")[2]
     print("Downloading PDF: {}".format(title))
     url = "https://iceportal.de/api1/rs/page{}".format(title)
-    responseChapter = requests.get(url, headers=cfg.headers)
+    responseChapter = requests.get(url, headers=cfg.headers, cookies=cfg.cookies)
 
 
     # extract chapters
@@ -137,11 +137,11 @@ def downloadPDF(title):
     itemdate = str(json_data["date"])
     titleshort = str(json_data["segment"])
 
-    createFolder('./audiobooks/{}'.format(titleshort))
+    createFolder('./zeitungskiosk/{}'.format(titleshort))
    
-    url = "https://iceportal.de{}".format(track)
+    url = "https://iceportal.de/{}".format(itemurl)
 
-    savePath = "audiobooks/{}/{}-{}".format(titleshort,itemdate,titleshort)+".pdf"
+    savePath = "zeitungskiosk/{}/{}-{}".format(titleshort,itemdate,titleshort)+".pdf"
     if os.path.exists(savePath):
         print("PDF exists")
         return

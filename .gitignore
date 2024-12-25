@@ -106,3 +106,5 @@ venv.bak/
 # Download folders
 audiobooks/
 zeitungskiosk/
+hoerbuecher.json
+ab_die_narbenmutter.json
