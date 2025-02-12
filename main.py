@@ -38,7 +38,7 @@ def getAllAudiobooks():
 def downloadAudiobook(title):
     titleshort = title.split("/")[2]
     print("Downloading audiobook: {}".format(title))
-    boolTest = True
+    boolTest = False
     jsonFilePath = "audiobooks/{}/{}.json".format(titleshort, titleshort)
 
     if os.path.exists(jsonFilePath):
@@ -93,18 +93,6 @@ def downloadAudiobook(title):
         with open(savePath, "wb+") as code:
             code.write(audio.content)
 
-
-# MAIN
-# extract all audiobooks
-audiobooks = getAllAudiobooks()
-createFolder('./audiobooks')
-
-# download all audibooks
-for book in audiobooks:
-    downloadAudiobook(str(book))
-
-
-
 def getAllPDFs():
     PDFs = []
 
@@ -124,7 +112,6 @@ def getAllPDFs():
 
 
 def downloadPDF(title):
-    # titleshort = title.split("/")[2]
     print("Downloading PDF: {}".format(title))
     url = "https://iceportal.de/api1/rs/page{}".format(title)
     responseChapter = requests.get(url, headers=cfg.headers, cookies=cfg.cookies)
@@ -159,3 +146,12 @@ createFolder('./zeitungskiosk')
 # download all audibooks
 for PDF in PDFs:
     downloadPDF(str(PDF))
+
+# MAIN
+# extract all audiobooks
+audiobooks = getAllAudiobooks()
+createFolder('./audiobooks')
+
+# download all audibooks
+for book in audiobooks:
+    downloadAudiobook(str(book))
