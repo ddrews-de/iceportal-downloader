@@ -10,7 +10,7 @@ It will run even on Android in Termux.
 ![](https://github.com/ddrews-de/iceportal-downloader/blob/master/git.gif)
 
 
-## Setup gernerly
+## Setup Windows, Mac, Linux
 1. git clone 'https://github.com/ddrews-de/iceportal-downloader.git'
 2. cd iceportal-audiobooks-downloader
 3. virtualenv env (make sure you are using python > 3.4)
