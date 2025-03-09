@@ -7,11 +7,11 @@ It will test, if the pdf or the audiobook is already downloaded. You can delete/
 It will run even on Android in Termux. 
 
 
-![](https://github.com/ddrews-de/iceportal-audiobooks-downloader/blob/master/git.gif)
+![](https://github.com/ddrews-de/iceportal-downloader/blob/master/git.gif)
 
 
 ## Setup gernerly
-1. git clone 'https://github.com/ddrews-de/iceportal-audiobooks-downloader.git'
+1. git clone 'https://github.com/ddrews-de/iceportal-downloader.git'
 2. cd iceportal-audiobooks-downloader
 3. virtualenv env (make sure you are using python > 3.4)
 4. source env/bin/activate
@@ -26,7 +26,7 @@ It will run even on Android in Termux.
   2. termux-setup-storage
     (to access the files https://wiki.termux.com/wiki/Termux-setup-storage)
   3. pkg install python git
-  4. git clone https://github.com/ddrews-de/iceportal-audiobooks-downloader.git
+  4. git clone https://github.com/ddrews-de/iceportal-downloader.git
   5. cd iceportal-audiobooks-downloader
   6. pip install -r requirements.txt
   7. python main.py
