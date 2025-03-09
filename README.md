@@ -1,8 +1,8 @@
 # iceportal-downloader
-(only works when connected to the ICE wifi)
+Works only when connected to the WifionICE wifi and the website iceportal.de is online.
 
 As the title describes...
-A small script which downloads all offerd newspapers, magazins and audiobooks from the deutsche bahn iceportal. Potcasts will be ignored.
+A script which downloads all offerd newspapers, magazins and audiobooks from the deutsche bahn iceportal. Potcasts will be ignored.
 It will test, if the pdf or the audiobook is already downloaded. You can delete/move the mp3 files, to save space.
 It will run even on Android in Termux. 
 
@@ -19,6 +19,7 @@ It will run even on Android in Termux.
 6. python main.py
 7. enjoy
 
+
 ## Setup Termux on Android
 1. Download Termux (https://github.com/termux/termux-app)
 2. Run the following in the app
@@ -33,6 +34,7 @@ It will run even on Android in Termux.
 
 
 ### To-Do
+* check for the website 
 * add dynamic selection for types (magazin, newspaper, podcasts, audiobooks)
 * extract new cookie automatically
 * Update/completing Termux documantations
