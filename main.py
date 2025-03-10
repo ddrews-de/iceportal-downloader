@@ -86,10 +86,10 @@ def downloadAudiobook(title):
         print("{}/{}".format(counter+1, len(downloadPath)))
 
         url = "https://iceportal.de{}".format(track)
+        ext = track.split(".")[-1]
         audio = requests.get(url)
 
-        savePath = "audiobooks/{}/{}_".format(titleshort,
-                                              titleshort)+str(counter+1)+".mp3"
+        savePath = "audiobooks/{}/{}_".format(titleshort, titleshort)+str(counter+1)+"."+ext
         with open(savePath, "wb+") as code:
             code.write(audio.content)
 
