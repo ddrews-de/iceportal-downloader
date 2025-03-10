@@ -3,8 +3,11 @@ Works only when connected to the WifionICE wifi and the website iceportal.de is 
 
 As the title describes...
 A script which downloads all offerd newspapers, magazins and audiobooks from the deutsche bahn iceportal. Potcasts will be ignored.
-It will test, if the pdf or the audiobook is already downloaded. You can delete/move the mp3 files, to save space.
+It will test, if the pdf or the audiobook is already downloaded. You can delete/move the mp3, m4b and pdf files, to save space.
+The test is looking for the .json file in the audiobooks subfolder or the .done file (including the date of the release date)
+To download te files again, the best way is to delete the corresponding folder.
 It will run even on Android in Termux. 
+
 
 
 ![](https://github.com/ddrews-de/iceportal-downloader/blob/master/git.gif)

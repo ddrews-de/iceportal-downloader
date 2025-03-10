@@ -129,13 +129,17 @@ def downloadPDF(title):
     url = "https://iceportal.de/{}".format(itemurl)
 
     savePath = "zeitungskiosk/{}/{}-{}".format(titleshort,itemdate,titleshort)+".pdf"
-    if os.path.exists(savePath):
-        print("PDF exists")
+    fileDonePath = "zeitungskiosk/{}/{}-{}".format(titleshort,itemdate,titleshort)+".done"
+    if os.path.exists(fileDonePath):
+        print("PDF already exists")
         return
     
     pdffile = requests.get(url)
     with open(savePath, "wb+") as code:
             code.write(pdffile.content)
+    # create done file
+    with open(fileDonePath, "w") as code:
+            code.write("done")
 
 
 # MAIN
