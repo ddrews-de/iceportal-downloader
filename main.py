@@ -100,6 +100,7 @@ def downloadAudiobook(title):
             os.remove(savePath)
 
         if os.path.exists(savePath):
+            print("Chapter already exists")
             continue
 
         with open(savePath, "wb+") as code:
