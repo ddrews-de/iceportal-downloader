@@ -13,6 +13,14 @@ def createFolder(directory):
     except OSError:
         print('Error: Creating directory. ' + directory)
 
+def testIcePortalReachable():
+    url = "https://iceportal.de/api1/rs/page/hoerbuecher"
+    response = requests.get(url, headers=cfg.headers)
+    if response.status_code == 200:
+        return True
+    else:
+        return False
+
 
 def getAllAudiobooks():
     audiobooks = []
@@ -86,7 +94,7 @@ def downloadAudiobook(title):
         ext = track.split(".")[-1]
         audio = requests.get(url)
         savePath = "audiobooks/{}/{}_".format(titleshort, titleshort)+str(counter+1)+"."+ext
-        
+
         if count == (counter+1) and os.path.exists(savePath):
             os.remove(savePath)
 
@@ -143,6 +151,10 @@ def downloadPDF(title):
             code.write("done")
 
 # MAIN
+# test if iceportal is reachable
+if not testIcePortalReachable():
+    print("Iceportal not reachable")
+    exit()
 # extract all audiobooks
 PDFs = getAllPDFs()
 createFolder('./zeitungskiosk')
