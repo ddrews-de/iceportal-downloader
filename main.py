@@ -16,7 +16,8 @@ def createFolder(directory):
 def testIcePortalReachable():
     url = "https://iceportal.de/api1/rs/page/hoerbuecher"
     response = requests.get(url, headers=cfg.headers)
-    if response.status_code == 200:
+    # response.content.
+    if response.status_code == 200 and len(response.text) > 100:
         return True
     else:
         return False
