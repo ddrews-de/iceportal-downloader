@@ -45,8 +45,9 @@ def downloadAudiobook(title):
     boolTest = False
     jsonFilePath = "audiobooks/{}/{}.json".format(titleshort, titleshort)
     countFilePath = "audiobooks/{}/{}.count".format(titleshort, titleshort)
+    doneFilePath = "audiobooks/{}/{}.done".format(titleshort, titleshort)
 
-    if os.path.exists(jsonFilePath):
+    if os.path.exists(doneFilePath):
         print("audiobook exists")
         return
 
@@ -87,6 +88,10 @@ def downloadAudiobook(title):
             count = int(countFile.read())
             if count >= len(downloadPath):
                 print("audiobook exists")
+                with open(jsonFilePath, "w") as jsonFile:
+                    jsonFile.write(json.dumps(json_data, indent=4))
+                with open(doneFilePath, "w") as doneFile:
+                    doneFile.write("done")
                 return
 
     for counter, track in enumerate(downloadPath):
@@ -111,7 +116,9 @@ def downloadAudiobook(title):
 
     with open(jsonFilePath, "w") as jsonFile:
         jsonFile.write(json.dumps(json_data, indent=4))
-
+    
+    with open(doneFilePath, "w") as doneFile:
+        doneFile.write("done")
 
 def getAllPDFs():
     PDFs = []
@@ -137,15 +144,23 @@ def downloadPDF(title):
     itemurl = str(json_data["navigation"]["href"])
     itemdate = str(json_data["date"])
     titleshort = str(json_data["segment"])
-    createFolder('./zeitungskiosk/{}'.format(titleshort))
+    filePath = './zeitungskiosk/{}'.format(titleshort)
+    createFolder(filePath)
     url = "https://iceportal.de/{}".format(itemurl)
     savePath = "zeitungskiosk/{}/{}-{}".format(titleshort,itemdate,titleshort)+".pdf"
     fileDonePath = "zeitungskiosk/{}/{}-{}".format(titleshort,itemdate,titleshort)+".done"
     if os.path.exists(fileDonePath):
         print("PDF already exists")
+        with open(fileDonePath, "w") as code:
+            code.write("done")
         return
-    
+    #Delete old done files
+    for file in os.listdir(filePath):
+        if file.endswith(".done"):
+            os.remove(os.path.join(filePath, file))
+    # download PDF 
     pdffile = requests.get(url)
+
     with open(savePath, "wb+") as code:
             code.write(pdffile.content)
     # create done file
