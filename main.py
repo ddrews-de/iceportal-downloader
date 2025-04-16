@@ -143,12 +143,22 @@ def downloadPDF(title):
     json_data = json.loads(responseChapter.text)
     itemurl = str(json_data["navigation"]["href"])
     itemdate = str(json_data["date"])
-    titleshort = str(json_data["title"])
-    filePath = './zeitungskiosk/{}'.format(titleshort)
+    # titleshort = str(json_data["title"])
+    titlefolder = title.split("/")[-1]
+    #filePath = './zeitungskiosk/{}'.format(titlefolder)
+    # neu, das der bisherige shorttitle 
+    filePath = title
     createFolder(filePath)
     url = "https://iceportal.de/{}".format(itemurl)
-    savePath = "zeitungskiosk/{}/{}-{}".format(titleshort,itemdate,titleshort)+".pdf"
-    fileDonePath = "zeitungskiosk/{}/{}-{}".format(titleshort,itemdate,titleshort)+".done"
+    savePath = "zeitungskiosk/{}/{}-{}".format(titlefolder,itemdate,titlefolder)+".pdf"
+    fileDonePath = "zeitungskiosk/{}/{}-{}".format(titlefolder,itemdate,titlefolder)+".done"
+    fileJsonPath = "zeitungskiosk/{}/{}-{}".format(titlefolder,itemdate,titlefolder)+".json"
+    if os.path.exists(fileJsonPath):
+        os.remove(fileJsonPath)
+    with open(fileJsonPath, "w") as jsonFile:
+        jsonFile.write(json.dumps(json_data, indent=4))
+
+
     if os.path.exists(fileDonePath):
         print("PDF already exists")
         with open(fileDonePath, "w") as code:
