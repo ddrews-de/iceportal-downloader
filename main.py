@@ -143,7 +143,7 @@ def downloadPDF(title):
     json_data = json.loads(responseChapter.text)
     itemurl = str(json_data["navigation"]["href"])
     itemdate = str(json_data["date"])
-    titleshort = str(json_data["segment"])
+    titleshort = str(json_data["title"])
     filePath = './zeitungskiosk/{}'.format(titleshort)
     createFolder(filePath)
     url = "https://iceportal.de/{}".format(itemurl)
