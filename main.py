@@ -145,9 +145,9 @@ def downloadPDF(title):
     itemdate = str(json_data["date"])
     # titleshort = str(json_data["title"])
     titlefolder = title.split("/")[-1]
-    #filePath = './zeitungskiosk/{}'.format(titlefolder)
+    filePath = 'zeitungskiosk/{}'.format(titlefolder)
     # neu, das der bisherige shorttitle 
-    filePath = title
+    # filePath = title
     createFolder(filePath)
     url = "https://iceportal.de/{}".format(itemurl)
     savePath = "zeitungskiosk/{}/{}-{}".format(titlefolder,itemdate,titlefolder)+".pdf"
