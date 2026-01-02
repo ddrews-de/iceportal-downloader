@@ -33,9 +33,10 @@ def getAllAudiobooks():
     for item in items:
         name = str(item["navigation"]["href"])
         itemtype = str(item["subtitle"])
+        startwith = name[:4]
         
         # check if itemtype is not Podcast
-        if itemtype != "Podcast":
+        if itemtype != "Podcast" and startwith != "http":
             audiobooks.append(name)
     return audiobooks
 
