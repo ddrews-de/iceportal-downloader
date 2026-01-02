@@ -80,9 +80,8 @@ def downloadAudiobook(title):
         chapterPath = chapter["path"]
         url = "https://iceportal.de/api1/rs/{}".format(chapterPath)
         responseDownloadPath = requests.get( url, headers=cfg.headers, cookies=cfg.cookies)
-	    json_data2 = json.loads(responseDownloadPath.text)
-
-        path = json.loads(responseDownloadPath.text)["path"]
+		json_data2 = json.loads(responseDownloadPath.text)
+		path = json.loads(responseDownloadPath.text)["path"]
         count2 = count2+1
         jsonFilePath2 = "audiobooks/{}/{}.{}.json".format(titleshort, titleshort, str(count2))
 	    with open(jsonFilePath2, "w") as jsonFile:
