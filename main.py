@@ -79,7 +79,7 @@ def downloadAudiobook(title):
         url = "https://iceportal.de/api1/rs/{}".format(chapterPath)
         responseDownloadPath = requests.get( url, headers=cfg.headers, cookies=cfg.cookies)
         path = json.loads(responseDownloadPath.text)["path"]
-        print("url:{}, path:{}".format(url, path)) 
+        # print("url:{}, path:{}".format(url, path))
         downloadPath.append(path)
 
     # download each track
@@ -100,6 +100,7 @@ def downloadAudiobook(title):
         url = "https://iceportal.de{}".format(track)
         ext = track.split(".")[-1]
         # ext = "mp4"
+        print("url:{}".format(url))
         audio = requests.get(url)
         savePath = "audiobooks/{}/{}_".format(titleshort, titleshort)+str(counter+1)+"."+ext
 
