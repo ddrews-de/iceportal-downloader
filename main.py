@@ -76,7 +76,7 @@ def downloadAudiobook(title):
     
     for chapter in playlist:
         chapterPath = chapter["path"]
-        url = "https://iceportal.de/api1/rs/audiobooks/path{}".format(chapterPath)
+        url = "https://iceportal.de/api1/rs/path{}".format(chapterPath)
         responseDownloadPath = requests.get( url, headers=cfg.headers, cookies=cfg.cookies)
         path = json.loads(responseDownloadPath.text)["path"]
         downloadPath.append(path)
