@@ -84,9 +84,8 @@ def downloadAudiobook(title):
         path = json.loads(responseDownloadPath.text)["path"]
         count2 = count2+1
         jsonFilePath2 = "audiobooks/{}/{}.{}.json".format(titleshort, titleshort, str(count2))
-	    with open(jsonFilePath2, "w") as jsonFile:
+        with open(jsonFilePath2, "w") as jsonFile:
 	        jsonFile.write(json.dumps(json_data2, indent=4))
-
         # print("url:{}, path:{}".format(url, path))
         downloadPath.append(path)
 
