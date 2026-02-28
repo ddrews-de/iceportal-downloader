@@ -16,9 +16,9 @@ It will run even on Android in Termux.
 ## Setup Windows, Mac, Linux
 1. git clone 'https://github.com/ddrews-de/iceportal-downloader.git'
 2. cd iceportal-audiobooks-downloader
-3. virtualenv env (make sure you are using python > 3.4)
-4. source env/bin/activate
-5. pip install -r requirements.txt
+3. python -m venv .venv (make sure you are using python > 3.4)
+4. .venv\Scripts\Activate.ps1 (depending on OS)
+5. python -m pip install -r requirements.txt
 6. python main.py
 7. enjoy
 

@@ -146,6 +146,8 @@ def getAllPDFs():
 
 
 def downloadPDF(title):
+    if title == "/speisekarte":
+        return
     print("Downloading PDF: {}".format(title))
     url = "https://iceportal.de/api1/rs/page{}".format(title)
     responseChapter = requests.get(url, headers=cfg.headers, cookies=cfg.cookies)
